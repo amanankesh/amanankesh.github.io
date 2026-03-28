@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Multi-Language Lip-Sync (VisualDub)</title>
+  <style>
+    body {
+      font-family: Arial;
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #222;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 10px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Multi-Language Lip-Sync (VisualDub)</h1>
+
+<p><b>Generative AI system for cross-lingual audio-to-lip motion synthesis with realistic facial animation.</b></p>
+
+---
+
+<h2>🚀 Problem</h2>
+<p>
+Generating realistic lip movements for arbitrary audio across different languages is challenging due to variations in phonemes, timing, and facial dynamics.
+Maintaining identity consistency and temporal coherence is critical for production use.
+</p>
+
+---
+
+<h2>💡 Solution</h2>
+<p>
+Built a generative model that maps audio signals to 3D facial keypoints and drives motion-based rendering for realistic, identity-preserving lip-sync across languages.
+</p>
+
+---
+
+<h2>🏗️ System Design</h2>
+
+<pre>
+Input Audio
+   ↓
+Audio Feature Extraction (Mel Spectrogram)
+   ↓
+Audio Encoder
+   ↓
+3D Keypoint Prediction
+   ↓
+Motion Estimation Network
+   ↓
+Warping / Rendering Network
+   ↓
+Final Video Frames
+</pre>
+
+---
+
+<h2>⚙️ Key Components</h2>
+
+<h3>1. Audio Processing</h3>
+<ul>
+<li>Mel-spectrogram extraction</li>
+<li>Temporal audio feature encoding</li>
+</ul>
+
+<h3>2. 3D Keypoint Modeling</h3>
+<ul>
+<li>Implicit facial keypoint extraction</li>
+<li>Head pose and expression modeling</li>
+</ul>
+
+<h3>3. Motion Estimation</h3>
+<ul>
+<li>Dense motion fields</li>
+<li>Keypoint-based deformation</li>
+</ul>
+
+<h3>4. Warping & Rendering</h3>
+<ul>
+<li>Feature warping using motion fields</li>
+<li>SPADE-based or GAN-based decoding</li>
+</ul>
+
+<h3>5. Identity Preservation</h3>
+<ul>
+<li>Maintains facial identity across frames</li>
+<li>Ensures consistency under motion and expression changes</li>
+</ul>
+
+---
+
+<h2>🧠 Techniques Used</h2>
+<ul>
+<li>Generative Models (GANs)</li>
+<li>3D Keypoint-based Modeling</li>
+<li>Motion Transfer</li>
+<li>Audio-Visual Learning</li>
+<li>SPADE / Warping Networks</li>
+</ul>
+
+---
+
+<h2>🔥 Key Features</h2>
+<ul>
+<li>Cross-lingual lip-sync</li>
+<li>Realistic facial animation</li>
+<li>Temporal consistency</li>
+<li>Identity preservation</li>
+</ul>
+
+---
+
+<h2>📌 Impact</h2>
+<ul>
+<li>Improved lip-sync accuracy and realism</li>
+<li>Enabled scalable video dubbing across languages</li>
+<li>Deployed in production (VisualDub)</li>
+</ul>
+
+---
+
+<h2><a href="index.html">← Back to Home</a></h2>
+
+</body>
+</html>
