@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CodePilot - Coding Agent</title>
+  <style>
+    body {
+      font-family: Arial;
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #222;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 10px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>CodePilot – Coding Agent</h1>
+
+<p><b>Cursor-like AI coding assistant for multi-file reasoning, debugging, and code generation.</b></p>
+
+---
+
+<h2>🚀 Problem</h2>
+<p>
+Developers struggle with navigating large codebases, debugging errors, and maintaining context across multiple files.
+Traditional copilots are limited to single-file or shallow context understanding.
+</p>
+
+---
+
+<h2>💡 Solution</h2>
+<p>
+Built an agentic coding system that understands entire repositories, performs multi-step reasoning, and iteratively improves code using execution feedback.
+</p>
+
+---
+
+<h2>🏗️ System Design</h2>
+
+<pre>
+User Query
+   ↓
+Planner Agent
+   ↓
+Retriever (FAISS / Embeddings)
+   ↓
+Context Builder
+   ↓
+LLM (Code Generation)
+   ↓
+Execution Engine
+   ↓
+Error Feedback Loop
+   ↓
+Refinement (Iterative)
+</pre>
+
+---
+
+<h2>⚙️ Key Components</h2>
+
+<h3>1. Retrieval Layer</h3>
+<ul>
+<li>Vector embeddings for code files</li>
+<li>FAISS for semantic search</li>
+<li>Multi-file context aggregation</li>
+</ul>
+
+<h3>2. Agentic Workflow</h3>
+<ul>
+<li>Planning + tool-calling</li>
+<li>Iterative refinement loop</li>
+<li>Error-aware reasoning</li>
+</ul>
+
+<h3>3. Execution Engine</h3>
+<ul>
+<li>Runs generated code</li>
+<li>Captures runtime errors</li>
+<li>Feeds errors back to LLM</li>
+</ul>
+
+<h3>4. UI Integration</h3>
+<ul>
+<li>Integrated with Open WebUI</li>
+<li>Interactive coding experience</li>
+</ul>
+
+---
+
+<h2>🧠 Techniques Used</h2>
+<ul>
+<li>RAG (Retrieval-Augmented Generation)</li>
+<li>Tool Calling</li>
+<li>Prompt Engineering</li>
+<li>Embedding-based Retrieval</li>
+</ul>
+
+---
+
+<h2>🔥 Key Features</h2>
+<ul>
+<li>Multi-file reasoning</li>
+<li>Debugging with execution feedback</li>
+<li>Code explanation and refactoring</li>
+<li>Context-aware code generation</li>
+</ul>
+
+---
+
+<h2>📌 Impact</h2>
+<ul>
+<li>Improved developer productivity</li>
+<li>Reduced debugging time</li>
+<li>Enabled scalable code understanding</li>
+</ul>
+
+---
+
+<h2><a href="index.html">← Back to Home</a></h2>
+
+</body>
+</html>
