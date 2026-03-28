@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contextual Advertising System</title>
+  <style>
+    body {
+      font-family: Arial;
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #222;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 10px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Contextual Advertising System</h1>
+
+<p><b>Multimodal ad targeting system for context-aware ad placement without user-level tracking.</b></p>
+
+---
+
+<h2>🚀 Problem</h2>
+<p>
+Traditional ad systems rely heavily on user-level tracking, leading to privacy concerns and poor contextual relevance.
+There is a need for accurate ad targeting based on content understanding rather than user data.
+</p>
+
+---
+
+<h2>💡 Solution</h2>
+<p>
+Built a multimodal contextual advertising system that analyzes video, audio, and text content to place relevant ads at precise timestamps using semantic retrieval.
+</p>
+
+---
+
+<h2>🏗️ System Design</h2>
+
+<pre>
+Video Content
+   ↓
+Frame + Audio Extraction
+   ↓
+Multimodal Encoding (Video + Audio + Text)
+   ↓
+Segment-Level Embeddings
+   ↓
+Vector DB (Milvus / FAISS)
+   ↓
+Metadata Store (PostgreSQL)
+   ↓
+Ad Embedding Index
+   ↓
+Similarity Matching
+   ↓
+Timestamp-Level Ad Placement
+</pre>
+
+---
+
+<h2>⚙️ Key Components</h2>
+
+<h3>1. Multimodal Understanding</h3>
+<ul>
+<li>Video, audio, and text feature extraction</li>
+<li>Joint embedding space for content understanding</li>
+</ul>
+
+<h3>2. Embedding & Indexing</h3>
+<ul>
+<li>Segment-level embeddings for fine-grained targeting</li>
+<li>Milvus / FAISS for vector similarity search</li>
+</ul>
+
+<h3>3. Hybrid Retrieval System</h3>
+<ul>
+<li>Vector DB for semantic similarity</li>
+<li>PostgreSQL for metadata filtering and indexing</li>
+</ul>
+
+<h3>4. Ad Matching Engine</h3>
+<ul>
+<li>Embedding-based similarity matching</li>
+<li>Context-aware ad ranking</li>
+</ul>
+
+<h3>5. Timestamp-Level Placement</h3>
+<ul>
+<li>Precise insertion based on content relevance</li>
+<li>Dynamic ad alignment with video segments</li>
+</ul>
+
+---
+
+<h2>🧠 Techniques Used</h2>
+<ul>
+<li>Multimodal Learning</li>
+<li>Embedding-based Retrieval</li>
+<li>ANN Search (FAISS / Milvus)</li>
+<li>Semantic Matching</li>
+<li>Contextual Intelligence</li>
+</ul>
+
+---
+
+<h2>🔥 Key Features</h2>
+<ul>
+<li>Privacy-preserving (no user tracking)</li>
+<li>Fine-grained timestamp-level targeting</li>
+<li>Multimodal content understanding</li>
+<li>Scalable retrieval architecture</li>
+</ul>
+
+---
+
+<h2>📌 Impact</h2>
+<ul>
+<li>Improved ad relevance and user experience</li>
+<li>Enhanced brand safety through contextual alignment</li>
+<li>Scalable and privacy-first ad targeting system</li>
+</ul>
+
+---
+
+<h2><a href="index.html">← Back to Home</a></h2>
+
+</body>
+</html>
