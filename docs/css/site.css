@@ -117,6 +117,15 @@ h2.section-title {
   max-width: 62ch;
 }
 
+.section-subtitle {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-hover);
+  font-weight: 700;
+  margin: 1.75rem 0 0.65rem;
+}
+
 /* Cards */
 .card-grid {
   display: grid;
@@ -126,6 +135,12 @@ h2.section-title {
 @media (min-width: 560px) {
   .card-grid.two {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .card-grid.three {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
