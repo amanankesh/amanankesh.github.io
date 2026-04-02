@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>multimodal-agents</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 { color: #222; }
+  </style>
+</head>
+<body>
+
+<h1>multimodal-agents</h1>
+<p><b>Monorepo for LLM routing, TV analytics, and GPU inference on Kubernetes.</b></p>
+
+<p>
+  Multiple components with their own install story: Google Gemini and Azure OpenAI–compatible routers, MCP server for
+  TV viewership KPIs (BigQuery), Helm charts for Ollama and vLLM on Kubernetes, and supporting scripts. Each top-level
+  directory has its own README and dependencies.
+</p>
+
+<h2>Components (examples)</h2>
+<ul>
+  <li><b>gemini_router</b> — Gemini router with OpenAI-compatible API and artifact generation</li>
+  <li><b>gptrouter</b> — Azure OpenAI proxy</li>
+  <li><b>mcp-server</b> — FastAPI + BigQuery for TV KPIs</li>
+  <li><b>vllm-helm-charts</b> / <b>ollama-helm</b> — Kubernetes deployment</li>
+  <li><b>priority-paygo-poc</b> — Vertex AI experiments</li>
+</ul>
+
+<h2>Tech</h2>
+<p>Python · FastAPI · Kubernetes · Helm · Vertex AI · vLLM · Ollama · BigQuery</p>
+
+<h2>Repository</h2>
+<p>
+  <a href="https://github.com/amanankesh/multimodal-agents"><b>github.com/amanankesh/multimodal-agents</b></a>
+</p>
+
+<h2><a href="../index.html">← Back to Home</a></h2>
+
+</body>
+</html>

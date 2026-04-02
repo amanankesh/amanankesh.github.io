@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generalizable Gaussian Avatar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 { color: #222; }
+  </style>
+</head>
+<body>
+
+<h1>Generalizable Gaussian Avatar</h1>
+<p><b>Research codebase for GAGAvatar-style dynamic Gaussian head avatars.</b></p>
+
+<p>
+  Training on tracked video data, inference with a reference identity and driver frames, and optional fine-tuning or
+  combined training paths. Built around Lightning Fabric training, FLAME mesh helpers, and Gaussian rendering utilities.
+</p>
+
+<h2>Highlights</h2>
+<ul>
+  <li>Configs for model, data, FLAME, and camera settings</li>
+  <li>Training (<code>train.py</code>), inference (<code>inference.py</code>), combined and fine-tuning entry points</li>
+  <li>Face tracking / matting via <code>GAGAvatar_track</code> submodule</li>
+  <li>Video-to-video style inference (<code>vid2vid_infer.py</code>)</li>
+</ul>
+
+<h2>Tech</h2>
+<p>Python · PyTorch · 3D Gaussian avatars · FLAME · TensorBoard</p>
+
+<h2>Repository</h2>
+<p>
+  <a href="https://github.com/amanankesh/Generalizable-Gaussian-Avatar"><b>github.com/amanankesh/Generalizable-Gaussian-Avatar</b></a>
+</p>
+
+<h2><a href="../index.html">← Back to Home</a></h2>
+
+</body>
+</html>

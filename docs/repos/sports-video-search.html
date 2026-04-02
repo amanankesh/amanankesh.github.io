@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sports Video Search</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 { color: #222; }
+  </style>
+</head>
+<body>
+
+<h1>Sports Video Search</h1>
+<p><b>Production-oriented MVP: hybrid semantic + structured search over sports clips.</b></p>
+
+<p>
+  Combines Vertex AI (Gemini for query parsing and summaries, text embeddings), PostgreSQL for metadata filters, and FAISS
+  for vector retrieval. FastAPI exposes search, health, and readiness endpoints suitable for containers and Cloud Run.
+</p>
+
+<h2>Flow</h2>
+<ol>
+  <li>Query understanding — Gemini extracts structured facets (JSON); falls back gracefully if Vertex is unavailable.</li>
+  <li>Retrieval — Postgres for filters; FAISS for top‑K similarity; dedupe by clip id.</li>
+  <li>Ranking — Blend of editorial signals, vector similarity, and facet bonuses.</li>
+  <li>Answer — Gemini summarizes top hits in neutral, sports-appropriate language.</li>
+</ol>
+
+<h2>Tech</h2>
+<p>Python · FastAPI · Vertex AI · PostgreSQL · FAISS · Google Cloud Run</p>
+
+<h2>Repository</h2>
+<p>
+  <a href="https://github.com/amanankesh/Sports-Video-Search"><b>github.com/amanankesh/Sports-Video-Search</b></a>
+</p>
+
+<h2><a href="../index.html">← Back to Home</a></h2>
+
+</body>
+</html>

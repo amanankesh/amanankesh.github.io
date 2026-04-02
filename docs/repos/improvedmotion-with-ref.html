@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ImprovedMotion-with-ref</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 { color: #222; }
+  </style>
+</head>
+<body>
+
+<h1>ImprovedMotion (with reference)</h1>
+<p><b>Motion-conditioned image and video generation with reference-based modeling.</b></p>
+
+<p>
+  Research codebase with a StyleGAN-style generator, discriminators, motion and landmark pipelines, and multiple training
+  entry points. Core architecture under <code>networks/</code>; run scripts from the repository root with the project on
+  <code>PYTHONPATH</code>.
+</p>
+
+<h2>Highlights</h2>
+<ul>
+  <li>Training loop with TensorBoard and checkpoints under <code>exps/</code></li>
+  <li>Video datasets (VoxCeleb-style and custom loaders)</li>
+  <li>Alternate paths: 3D training, lip-focused trainers, <code>run_demo.py</code> for inference</li>
+  <li>Cog (<code>predict.py</code>, <code>cog.yaml</code>) for containerized inference</li>
+</ul>
+
+<h2>Tech</h2>
+<p>Python · PyTorch · Perceptual losses (VGG, LPIPS, DISTS, SSIM) · Landmarks / PIPNet</p>
+
+<h2>License</h2>
+<p>See repository <code>LICENSE.md</code> (CC BY-NC 4.0).</p>
+
+<h2>Repository</h2>
+<p>
+  <a href="https://github.com/amanankesh/ImprovedMotion-with-ref"><b>github.com/amanankesh/ImprovedMotion-with-ref</b></a>
+</p>
+
+<h2><a href="../index.html">← Back to Home</a></h2>
+
+</body>
+</html>

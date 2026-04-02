@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>cric_info_motion_graphics</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 { color: #222; }
+    pre {
+      background: #f4f4f4;
+      padding: 10px;
+      overflow-x: auto;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Cricket Info Motion Graphics</h1>
+<p><b>Modular cricket video pipeline: raw footage → chalkboard / motion-graphics style output.</b></p>
+
+<p>
+  A Python pipeline that turns match footage into a stylized look: edge-based illustration, emphasis on players and ball,
+  static overlay removal, and a final cinematic grade. Outputs include per-frame masks, cleaned video, edge-map video,
+  composites, and a graded <code>final.mp4</code>.
+</p>
+
+<h2>Pipeline (high level)</h2>
+<pre>
+Static removal → Player segmentation (YOLO + SAM2) → Ball segmentation → Edge map (Canny + chalk BG)
+→ Highlighting composite → Film-style effects
+</pre>
+
+<h2>Tech</h2>
+<ul>
+  <li>Python orchestration (<code>main.py</code>)</li>
+  <li>YOLO prompts + SAM2 video propagation for player/ball masks</li>
+  <li>Temporal static logo/banner handling</li>
+  <li>Edge maps, compositing, post (grain, flicker, grade)</li>
+</ul>
+
+<h2>Repository</h2>
+<p>
+  <a href="https://github.com/amanankesh/cric_info_motion_graphics"><b>github.com/amanankesh/cric_info_motion_graphics</b></a>
+</p>
+
+<h2><a href="../index.html">← Back to Home</a></h2>
+
+</body>
+</html>
