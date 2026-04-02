@@ -1,45 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Generalizable Gaussian Avatar</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-      line-height: 1.6;
-    }
-    h1, h2 { color: #222; }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Generalizable Gaussian Avatar — Aman Kumar Ankesh</title>
+  <meta name="description" content="GAGAvatar-style dynamic Gaussian head avatars: training and inference.">
+  <link rel="stylesheet" href="../css/site.css">
 </head>
-<body>
+<body class="page">
+  <header class="site-header">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a> / <span>Open source</span> / <span>Generalizable-Gaussian-Avatar</span>
+    </nav>
+    <h1>Generalizable Gaussian Avatar</h1>
+    <p class="lede">
+      Research codebase for dynamic Gaussian head avatars in the GAGAvatar family: train on tracked video, run inference with a
+      reference identity and driver frames, and optionally fine-tune or use combined training paths.
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://github.com/amanankesh/Generalizable-Gaussian-Avatar">View on GitHub</a>
+      <a class="btn btn-ghost" href="../index.html">← Back to home</a>
+    </div>
+  </header>
 
-<h1>Generalizable Gaussian Avatar</h1>
-<p><b>Research codebase for GAGAvatar-style dynamic Gaussian head avatars.</b></p>
+  <main class="content">
+    <h2>What you can do</h2>
+    <ul>
+      <li><strong>Train</strong> — Lightning Fabric loop with TensorBoard; configs split by model and data (e.g. FLAME, camera, dataset paths).</li>
+      <li><strong>Inference</strong> — <code>inference.py</code> for reference + driver frames (<code>forward_expression</code>).</li>
+      <li><strong>Video-style transfer</strong> — <code>vid2vid_infer.py</code> for video-to-video style runs.</li>
+      <li><strong>Tracking stack</strong> — Face tracking and matting live in the <code>GAGAvatar_track</code> submodule.</li>
+    </ul>
 
-<p>
-  Training on tracked video data, inference with a reference identity and driver frames, and optional fine-tuning or
-  combined training paths. Built around Lightning Fabric training, FLAME mesh helpers, and Gaussian rendering utilities.
-</p>
+    <div class="detail-box">
+      <h3>Repository map (abbrev.)</h3>
+      <ul>
+        <li><code>configs/model</code>, <code>configs/data</code> — model name, optimizer, schedule, dataset and FLAME/camera settings.</li>
+        <li><code>core/models/GAGAvatar</code> — main model exports (e.g. <code>CombinedModel.GAGAvatar</code>).</li>
+        <li><code>core/libs/flame_model</code> — FLAME mesh helpers; <code>core/libs/GAGAvatar_track</code> — tracking engines.</li>
+        <li><code>train.py</code>, <code>CombinedTraining.py</code>, <code>FineTuning.py</code> — training entry points.</li>
+        <li><code>build_resources.sh</code> — pulls FLAME/GAGAvatar assets (license prompts as upstream requires).</li>
+      </ul>
+    </div>
 
-<h2>Highlights</h2>
-<ul>
-  <li>Configs for model, data, FLAME, and camera settings</li>
-  <li>Training (<code>train.py</code>), inference (<code>inference.py</code>), combined and fine-tuning entry points</li>
-  <li>Face tracking / matting via <code>GAGAvatar_track</code> submodule</li>
-  <li>Video-to-video style inference (<code>vid2vid_infer.py</code>)</li>
-</ul>
+    <h2>Stack</h2>
+    <p>Python · PyTorch · Lightning Fabric · FLAME · 3D Gaussian rendering · TensorBoard</p>
+  </main>
 
-<h2>Tech</h2>
-<p>Python · PyTorch · 3D Gaussian avatars · FLAME · TensorBoard</p>
-
-<h2>Repository</h2>
-<p>
-  <a href="https://github.com/amanankesh/Generalizable-Gaussian-Avatar"><b>github.com/amanankesh/Generalizable-Gaussian-Avatar</b></a>
-</p>
-
-<h2><a href="../index.html">← Back to Home</a></h2>
-
+  <footer class="site-footer">
+    <a href="../index.html">← Portfolio home</a>
+  </footer>
 </body>
 </html>

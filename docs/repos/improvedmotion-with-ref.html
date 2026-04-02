@@ -1,49 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>ImprovedMotion-with-ref</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-      line-height: 1.6;
-    }
-    h1, h2 { color: #222; }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ImprovedMotion-with-ref — Aman Kumar Ankesh</title>
+  <meta name="description" content="Motion-conditioned generation with reference-based modeling and landmarks.">
+  <link rel="stylesheet" href="../css/site.css">
 </head>
-<body>
+<body class="page">
+  <header class="site-header">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a> / <span>Open source</span> / <span>ImprovedMotion-with-ref</span>
+    </nav>
+    <h1>ImprovedMotion (with reference)</h1>
+    <p class="lede">
+      Research codebase for motion-conditioned image and video generation: StyleGAN-style generator, discriminators, motion
+      and landmark pipelines, and several training entry points. Run scripts from the repo root with the project on
+      <code>PYTHONPATH</code>.
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://github.com/amanankesh/ImprovedMotion-with-ref">View on GitHub</a>
+      <a class="btn btn-ghost" href="../index.html">← Back to home</a>
+    </div>
+  </header>
 
-<h1>ImprovedMotion (with reference)</h1>
-<p><b>Motion-conditioned image and video generation with reference-based modeling.</b></p>
+  <main class="content">
+    <h2>Highlights</h2>
+    <ul>
+      <li><strong>Core</strong> — <code>networks/</code> holds generator, discriminator, motion extractor, SPADE-style blocks, PIPNet / landmark helpers.</li>
+      <li><strong>Training</strong> — <code>train.py</code> + <code>trainer.py</code> with perceptual losses (VGG, LPIPS, DISTS, SSIM, etc.) and TensorBoard.</li>
+      <li><strong>Data</strong> — VoxCeleb-style and custom video loaders (<code>dataset.py</code>, <code>VideoDataset*.py</code>).</li>
+      <li><strong>Alternate tracks</strong> — 3D and lip-focused trainers (<code>Train3d.py</code>, <code>LipTrainer.py</code>, …) for specialized experiments.</li>
+      <li><strong>Shipping</strong> — <code>predict.py</code> + <code>cog.yaml</code> for Cog / Replicate-style container inference.</li>
+    </ul>
 
-<p>
-  Research codebase with a StyleGAN-style generator, discriminators, motion and landmark pipelines, and multiple training
-  entry points. Core architecture under <code>networks/</code>; run scripts from the repository root with the project on
-  <code>PYTHONPATH</code>.
-</p>
+    <h2>Outputs &amp; checkpoints</h2>
+    <p>
+      Experiments land under <code>exps/</code> (often gitignored); demos and visuals under <code>res/</code>. Place pretrained
+      weights where <code>predict.py</code> expects (e.g. <code>checkpoints/vox.pt</code>, <code>taichi.pt</code>, <code>ted.pt</code>) per README.
+    </p>
 
-<h2>Highlights</h2>
-<ul>
-  <li>Training loop with TensorBoard and checkpoints under <code>exps/</code></li>
-  <li>Video datasets (VoxCeleb-style and custom loaders)</li>
-  <li>Alternate paths: 3D training, lip-focused trainers, <code>run_demo.py</code> for inference</li>
-  <li>Cog (<code>predict.py</code>, <code>cog.yaml</code>) for containerized inference</li>
-</ul>
+    <h2>License</h2>
+    <p>See repository <code>LICENSE.md</code> (CC BY-NC 4.0).</p>
 
-<h2>Tech</h2>
-<p>Python · PyTorch · Perceptual losses (VGG, LPIPS, DISTS, SSIM) · Landmarks / PIPNet</p>
+    <h2>Stack</h2>
+    <p>Python · PyTorch · Landmarks / PIPNet · Cog</p>
+  </main>
 
-<h2>License</h2>
-<p>See repository <code>LICENSE.md</code> (CC BY-NC 4.0).</p>
-
-<h2>Repository</h2>
-<p>
-  <a href="https://github.com/amanankesh/ImprovedMotion-with-ref"><b>github.com/amanankesh/ImprovedMotion-with-ref</b></a>
-</p>
-
-<h2><a href="../index.html">← Back to Home</a></h2>
-
+  <footer class="site-footer">
+    <a href="../index.html">← Portfolio home</a>
+  </footer>
 </body>
 </html>

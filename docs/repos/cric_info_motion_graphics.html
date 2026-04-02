@@ -1,55 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>cric_info_motion_graphics</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-      line-height: 1.6;
-    }
-    h1, h2 { color: #222; }
-    pre {
-      background: #f4f4f4;
-      padding: 10px;
-      overflow-x: auto;
-      font-size: 14px;
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cricket motion graphics — Aman Kumar Ankesh</title>
+  <meta name="description" content="Cricket video pipeline: segmentation, chalk-style edges, compositing, and grade.">
+  <link rel="stylesheet" href="../css/site.css">
 </head>
-<body>
+<body class="page">
+  <header class="site-header">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a> / <span>Open source</span> / <span>cric_info_motion_graphics</span>
+    </nav>
+    <h1>Cricket Info Motion Graphics</h1>
+    <p class="lede">
+      A modular pipeline that turns raw cricket match footage into a stylized “chalkboard / motion graphics” look: player
+      and ball emphasis, static overlay removal, edge illustration, compositing, and a final cinematic pass.
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://github.com/amanankesh/cric_info_motion_graphics">View on GitHub</a>
+      <a class="btn btn-ghost" href="../index.html">← Back to home</a>
+    </div>
+  </header>
 
-<h1>Cricket Info Motion Graphics</h1>
-<p><b>Modular cricket video pipeline: raw footage → chalkboard / motion-graphics style output.</b></p>
+  <main class="content">
+    <h2>Outputs</h2>
+    <p>Each full run writes to a timestamped folder under <code>outputs/</code>. Depending on which steps you enable, you get:</p>
+    <ul>
+      <li>Per-frame masks for players and ball (segmentation steps).</li>
+      <li>A cleaned source plus a static mask for logo/banner-style regions.</li>
+      <li>An edge-map video on a chalk-style background.</li>
+      <li>A highlighted composite (edges + masks + background).</li>
+      <li>A graded <code>final.mp4</code> with film-style post (darken, warmth, glow, grain, flicker).</li>
+    </ul>
 
-<p>
-  A Python pipeline that turns match footage into a stylized look: edge-based illustration, emphasis on players and ball,
-  static overlay removal, and a final cinematic grade. Outputs include per-frame masks, cleaned video, edge-map video,
-  composites, and a graded <code>final.mp4</code>.
-</p>
+    <h2>Pipeline modules</h2>
+    <p>The orchestrator in <code>main.py</code> runs steps in a fixed order so masks exist before compositing:</p>
 
-<h2>Pipeline (high level)</h2>
-<pre>
-Static removal → Player segmentation (YOLO + SAM2) → Ball segmentation → Edge map (Canny + chalk BG)
-→ Highlighting composite → Film-style effects
-</pre>
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Step</th>
+          <th>Module</th>
+          <th>Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><code>steps/player_segmentation.py</code></td>
+          <td>YOLO prompts + SAM2 video propagation → player masks.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><code>steps/ball_segmentation.py</code></td>
+          <td>Ball box search + SAM2 propagation → ball masks.</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><code>steps/static_removal.py</code></td>
+          <td>Bottom banner strip + temporal static logo estimate → mask PNG + cleaned MP4.</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><code>steps/edge_map.py</code></td>
+          <td>Canny + skeletonization + chalk background → edge map video.</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><code>steps/highlighting.py</code></td>
+          <td>Composite edge map with masks and background image.</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td><code>steps/effects_step.py</code></td>
+          <td>Final look: grade, glow, grain, flicker → <code>final.mp4</code>.</td>
+        </tr>
+      </tbody>
+    </table>
 
-<h2>Tech</h2>
-<ul>
-  <li>Python orchestration (<code>main.py</code>)</li>
-  <li>YOLO prompts + SAM2 video propagation for player/ball masks</li>
-  <li>Temporal static logo/banner handling</li>
-  <li>Edge maps, compositing, post (grain, flicker, grade)</li>
-</ul>
+    <p class="mono-flow">Execution order in production: static removal first → players → ball → edge map → highlighting → effects.</p>
 
-<h2>Repository</h2>
-<p>
-  <a href="https://github.com/amanankesh/cric_info_motion_graphics"><b>github.com/amanankesh/cric_info_motion_graphics</b></a>
-</p>
+    <h2>Stack</h2>
+    <p>Python · YOLO · SAM2 · OpenCV-style image ops · configurable <code>outputs/</code> layout for repeatable runs.</p>
+  </main>
 
-<h2><a href="../index.html">← Back to Home</a></h2>
-
+  <footer class="site-footer">
+    <a href="../index.html">← Portfolio home</a>
+  </footer>
 </body>
 </html>

@@ -1,52 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Video Understanding Agent</title>
-  <style>
-    body {
-      font-family: Arial;
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-      line-height: 1.6;
-    }
-    h1, h2 {
-      color: #222;
-    }
-    pre {
-      background: #f4f4f4;
-      padding: 10px;
-      overflow-x: auto;
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Video Understanding Agent — Aman Kumar Ankesh</title>
+  <meta name="description" content="Hierarchical video understanding with CLIP, Milvus, and LLM QA.">
+  <link rel="stylesheet" href="css/site.css">
 </head>
+<body class="page">
+  <header class="site-header">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a> / <span>Featured write-ups</span> / <span>Video agent</span>
+    </nav>
+    <div class="actions">
+      <a class="btn btn-ghost" href="index.html">← Back to home</a>
+    </div>
+  </header>
 
-<body>
+  <article class="project-article">
+    <h1>Video Understanding Agent</h1>
+    <p class="lead">Multimodal system for hierarchical video understanding: frame → shot → scene → full video, with semantic retrieval and LLM QA.</p>
 
-<h1>Video Understanding Agent</h1>
+    <h2>Problem</h2>
+    <p>
+      Long videos mix fine-grained actions with narrative structure. Flat models miss long-range dependencies; you need
+      representations at multiple scales and a way to retrieve the right evidence before answering or summarizing.
+    </p>
 
-<p><b>Multimodal AI system for hierarchical video understanding and reasoning.</b></p>
+    <h2>Approach</h2>
+    <p>
+      Encode frames with strong vision backbones, aggregate temporally into shots and scenes, store embeddings in a vector
+      database with metadata in Postgres, then run retrieval-augmented QA and summarization with an LLM.
+    </p>
 
----
-
-<h2>🚀 Problem</h2>
-<p>
-Understanding long-form videos requires capturing both fine-grained actions (frame-level) and high-level narrative structure (scene, episode, plot).
-Traditional models struggle with long-range temporal reasoning and multimodal alignment.
-</p>
-
----
-
-<h2>💡 Solution</h2>
-<p>
-Built a hierarchical video understanding agent that models information across multiple levels (frame → shot → scene → full video) and enables semantic querying, summarization, and reasoning over long videos.
-</p>
-
----
-
-<h2>🏗️ System Design</h2>
-
-<pre>
+    <h2>System design</h2>
+    <pre>
 Video Input
    ↓
 Frame Extraction
@@ -63,78 +51,64 @@ Metadata Store (PostgreSQL)
    ↓
 Retriever (Semantic Search)
    ↓
-LLM (QA / Summarization)
-</pre>
+LLM (QA / Summarization)</pre>
 
----
+    <h2>Key components</h2>
 
-<h2>⚙️ Key Components</h2>
+    <h3>1. Multimodal encoding</h3>
+    <ul>
+      <li>CLIP / ViT-style features for frames</li>
+      <li>Text alignment for cross-modal queries</li>
+    </ul>
 
-<h3>1. Multimodal Encoding</h3>
-<ul>
-<li>CLIP / Vision Transformers for frame-level features</li>
-<li>Text alignment for semantic understanding</li>
-</ul>
+    <h3>2. Temporal modeling</h3>
+    <ul>
+      <li>Sequence models for local actions</li>
+      <li>Attention for long-range dependencies</li>
+    </ul>
 
-<h3>2. Temporal Modeling</h3>
-<ul>
-<li>Sequence modeling for action understanding</li>
-<li>Attention-based aggregation for long-range dependencies</li>
-</ul>
+    <h3>3. Hierarchical representation</h3>
+    <ul>
+      <li>Frame → shot → scene → video-level embeddings</li>
+      <li>Local detail plus global context</li>
+    </ul>
 
-<h3>3. Hierarchical Representation</h3>
-<ul>
-<li>Frame → Shot → Scene → Full Video embeddings</li>
-<li>Captures both local and global context</li>
-</ul>
+    <h3>4. Retrieval layer</h3>
+    <ul>
+      <li>Milvus for vectors</li>
+      <li>PostgreSQL for structured metadata</li>
+      <li>Semantic search over segments</li>
+    </ul>
 
-<h3>4. Retrieval Layer</h3>
-<ul>
-<li>Milvus for vector storage</li>
-<li>PostgreSQL for metadata indexing</li>
-<li>Semantic search across video segments</li>
-</ul>
+    <h3>5. LLM integration</h3>
+    <ul>
+      <li>Video QA</li>
+      <li>Summarization</li>
+      <li>Reasoning over retrieved evidence</li>
+    </ul>
 
-<h3>5. LLM Integration</h3>
-<ul>
-<li>Video QA</li>
-<li>Summarization</li>
-<li>Context-aware reasoning</li>
-</ul>
+    <h2>Techniques</h2>
+    <ul>
+      <li>Multimodal learning</li>
+      <li>CLIP-style embeddings</li>
+      <li>RAG over video segments</li>
+      <li>Temporal attention and hierarchical pooling</li>
+    </ul>
 
----
+    <h2>Outcomes</h2>
+    <ul>
+      <li>Segment-level semantic retrieval</li>
+      <li>Long-context reasoning via hierarchy + retrieval</li>
+      <li>Scalable path to longer content libraries</li>
+    </ul>
 
-<h2>🧠 Techniques Used</h2>
-<ul>
-<li>Multimodal Learning</li>
-<li>CLIP-based Embeddings</li>
-<li>RAG (Retrieval-Augmented Generation)</li>
-<li>Temporal Attention Models</li>
-<li>Hierarchical Representation Learning</li>
-</ul>
+    <h2>Related open source</h2>
+    <p>See <a href="repos/sports-video-search.html">Sports-Video-Search</a> for another retrieval + LLM pipeline over video
+      metadata, and <a href="repos/cric_info_motion_graphics.html">cric_info_motion_graphics</a> for dense video processing.</p>
 
----
-
-<h2>🔥 Key Features</h2>
-<ul>
-<li>Hierarchical video understanding</li>
-<li>Long-context reasoning</li>
-<li>Segment-level semantic retrieval</li>
-<li>Multimodal alignment (video + text)</li>
-</ul>
-
----
-
-<h2>📌 Impact</h2>
-<ul>
-<li>Improved video search and retrieval</li>
-<li>Enabled semantic video QA</li>
-<li>Scalable understanding of long-form content</li>
-</ul>
-
----
-
-<h2><a href="index.html">← Back to Home</a></h2>
-
+    <nav class="project-nav" aria-label="Section end">
+      <a href="index.html">← Back to portfolio home</a>
+    </nav>
+  </article>
 </body>
 </html>

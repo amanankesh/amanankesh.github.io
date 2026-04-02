@@ -1,52 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>CodePilot - Coding Agent</title>
-  <style>
-    body {
-      font-family: Arial;
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-      line-height: 1.6;
-    }
-    h1, h2 {
-      color: #222;
-    }
-    pre {
-      background: #f4f4f4;
-      padding: 10px;
-      overflow-x: auto;
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CodePilot — Coding Agent — Aman Kumar Ankesh</title>
+  <meta name="description" content="Agentic coding assistant with RAG, FAISS, and execution feedback.">
+  <link rel="stylesheet" href="css/site.css">
 </head>
+<body class="page">
+  <header class="site-header">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a> / <span>Featured write-ups</span> / <span>CodePilot</span>
+    </nav>
+    <div class="actions">
+      <a class="btn btn-ghost" href="index.html">← Back to home</a>
+    </div>
+  </header>
 
-<body>
+  <article class="project-article">
+    <h1>CodePilot — Coding Agent</h1>
+    <p class="lead">Cursor-like AI coding assistant for multi-file reasoning, debugging, and code generation with retrieval and tool use.</p>
 
-<h1>CodePilot – Coding Agent</h1>
+    <h2>Problem</h2>
+    <p>
+      Large codebases are hard to navigate, errors span files, and single-file copilots lose thread. You need repository-wide
+      context, a plan, and a loop that can execute and learn from failures—not just the next token.
+    </p>
 
-<p><b>Cursor-like AI coding assistant for multi-file reasoning, debugging, and code generation.</b></p>
+    <h2>Approach</h2>
+    <p>
+      An agentic stack: embed the repo, retrieve relevant files per task, build multi-file context, generate changes, run
+      code, and feed stderr back until the task stabilizes or hits a limit. The same loop powers explanation and refactors.
+    </p>
 
----
-
-<h2>🚀 Problem</h2>
-<p>
-Developers struggle with navigating large codebases, debugging errors, and maintaining context across multiple files.
-Traditional copilots are limited to single-file or shallow context understanding.
-</p>
-
----
-
-<h2>💡 Solution</h2>
-<p>
-Built an agentic coding system that understands entire repositories, performs multi-step reasoning, and iteratively improves code using execution feedback.
-</p>
-
----
-
-<h2>🏗️ System Design</h2>
-
-<pre>
+    <h2>System design</h2>
+    <pre>
 User Query
    ↓
 Planner Agent
@@ -61,72 +49,56 @@ Execution Engine
    ↓
 Error Feedback Loop
    ↓
-Refinement (Iterative)
-</pre>
+Refinement (Iterative)</pre>
 
----
+    <h2>Key components</h2>
 
-<h2>⚙️ Key Components</h2>
+    <h3>1. Retrieval layer</h3>
+    <ul>
+      <li>Vector embeddings over code files</li>
+      <li>FAISS for semantic search</li>
+      <li>Multi-file context aggregation</li>
+    </ul>
 
-<h3>1. Retrieval Layer</h3>
-<ul>
-<li>Vector embeddings for code files</li>
-<li>FAISS for semantic search</li>
-<li>Multi-file context aggregation</li>
-</ul>
+    <h3>2. Agentic workflow</h3>
+    <ul>
+      <li>Planning and tool-calling</li>
+      <li>Iterative refinement</li>
+      <li>Error-aware reasoning</li>
+    </ul>
 
-<h3>2. Agentic Workflow</h3>
-<ul>
-<li>Planning + tool-calling</li>
-<li>Iterative refinement loop</li>
-<li>Error-aware reasoning</li>
-</ul>
+    <h3>3. Execution engine</h3>
+    <ul>
+      <li>Runs generated code in a controlled environment</li>
+      <li>Captures runtime errors for the next turn</li>
+    </ul>
 
-<h3>3. Execution Engine</h3>
-<ul>
-<li>Runs generated code</li>
-<li>Captures runtime errors</li>
-<li>Feeds errors back to LLM</li>
-</ul>
+    <h3>4. UI integration</h3>
+    <ul>
+      <li>Open WebUI for an interactive chat + edit experience</li>
+    </ul>
 
-<h3>4. UI Integration</h3>
-<ul>
-<li>Integrated with Open WebUI</li>
-<li>Interactive coding experience</li>
-</ul>
+    <h2>Techniques</h2>
+    <ul>
+      <li>RAG (retrieval-augmented generation)</li>
+      <li>Tool calling and structured prompts</li>
+      <li>Embedding-based retrieval</li>
+    </ul>
 
----
+    <h2>Outcomes</h2>
+    <ul>
+      <li>Multi-file reasoning and safer refactors</li>
+      <li>Faster debugging when execution feedback is available</li>
+      <li>Scalable understanding as the repo grows</li>
+    </ul>
 
-<h2>🧠 Techniques Used</h2>
-<ul>
-<li>RAG (Retrieval-Augmented Generation)</li>
-<li>Tool Calling</li>
-<li>Prompt Engineering</li>
-<li>Embedding-based Retrieval</li>
-</ul>
+    <h2>Related open source</h2>
+    <p>Browse similar infrastructure patterns in <a href="repos/multimodal-agents.html">multimodal-agents</a> (router and
+      deployment tooling) and <a href="repos/sports-video-search.html">Sports-Video-Search</a> (FastAPI + retrieval).</p>
 
----
-
-<h2>🔥 Key Features</h2>
-<ul>
-<li>Multi-file reasoning</li>
-<li>Debugging with execution feedback</li>
-<li>Code explanation and refactoring</li>
-<li>Context-aware code generation</li>
-</ul>
-
----
-
-<h2>📌 Impact</h2>
-<ul>
-<li>Improved developer productivity</li>
-<li>Reduced debugging time</li>
-<li>Enabled scalable code understanding</li>
-</ul>
-
----
-
-<h2><a href="index.html">← Back to Home</a></h2>
-
+    <nav class="project-nav" aria-label="Section end">
+      <a href="index.html">← Back to portfolio home</a>
+    </nav>
+  </article>
 </body>
 </html>

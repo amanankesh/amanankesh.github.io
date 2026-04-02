@@ -1,47 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>multimodal-agents</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-      line-height: 1.6;
-    }
-    h1, h2 { color: #222; }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>multimodal-agents — Aman Kumar Ankesh</title>
+  <meta name="description" content="Monorepo: LLM routers, BigQuery MCP, vLLM/Ollama on Kubernetes.">
+  <link rel="stylesheet" href="../css/site.css">
 </head>
-<body>
+<body class="page">
+  <header class="site-header">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a> / <span>Open source</span> / <span>multimodal-agents</span>
+    </nav>
+    <h1>multimodal-agents</h1>
+    <p class="lede">
+      A monorepo of production-adjacent tooling: OpenAI-compatible routers for Gemini and Azure GPT, TV viewership analytics
+      over BigQuery, and Helm-centric GPU inference (vLLM, Ollama) on Kubernetes. There is no single install for the whole
+      tree—each folder has its own requirements or chart.
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://github.com/amanankesh/multimodal-agents">View on GitHub</a>
+      <a class="btn btn-ghost" href="../index.html">← Back to home</a>
+    </div>
+  </header>
 
-<h1>multimodal-agents</h1>
-<p><b>Monorepo for LLM routing, TV analytics, and GPU inference on Kubernetes.</b></p>
+  <main class="content">
+    <h2>Top-level components</h2>
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Directory</th>
+          <th>Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>gemini_router/</code></td>
+          <td>Google Gemini behind an OpenAI-compatible API; artifact generation hooks.</td>
+        </tr>
+        <tr>
+          <td><code>gptrouter/</code></td>
+          <td>Azure OpenAI (e.g. GPT‑5 class models) / image proxy, OpenAI-compatible.</td>
+        </tr>
+        <tr>
+          <td><code>mcp-server/</code></td>
+          <td>FastAPI service exposing TV viewership KPIs via BigQuery.</td>
+        </tr>
+        <tr>
+          <td><code>mcp-server-helm/</code></td>
+          <td>Helm chart for the MCP server deployment.</td>
+        </tr>
+        <tr>
+          <td><code>ollama-helm/</code></td>
+          <td>Helm chart for Ollama on Kubernetes.</td>
+        </tr>
+        <tr>
+          <td><code>vllm-helm-charts/</code></td>
+          <td>vLLM stack: router, workers, Ray, LoRA, cache patterns.</td>
+        </tr>
+        <tr>
+          <td><code>vllm-helm-ps/</code></td>
+          <td>Extra GKE-oriented snippets (PVC, HPA, model config).</td>
+        </tr>
+        <tr>
+          <td><code>priority-paygo-poc/</code></td>
+          <td>Vertex AI priority / pay-as-you-go experiment.</td>
+        </tr>
+        <tr>
+          <td><code>scripts/</code>, <code>filestore/</code></td>
+          <td>Utilities and shared storage manifests for GPU workloads.</td>
+        </tr>
+      </tbody>
+    </table>
 
-<p>
-  Multiple components with their own install story: Google Gemini and Azure OpenAI–compatible routers, MCP server for
-  TV viewership KPIs (BigQuery), Helm charts for Ollama and vLLM on Kubernetes, and supporting scripts. Each top-level
-  directory has its own README and dependencies.
-</p>
+    <h2>Operations notes</h2>
+    <p>
+      Root files include GPU operator notes, a CUDA vector-add job for verifying GPUs on cluster, and environment templates.
+      Treat each subdirectory as its own service with its own README.
+    </p>
 
-<h2>Components (examples)</h2>
-<ul>
-  <li><b>gemini_router</b> — Gemini router with OpenAI-compatible API and artifact generation</li>
-  <li><b>gptrouter</b> — Azure OpenAI proxy</li>
-  <li><b>mcp-server</b> — FastAPI + BigQuery for TV KPIs</li>
-  <li><b>vllm-helm-charts</b> / <b>ollama-helm</b> — Kubernetes deployment</li>
-  <li><b>priority-paygo-poc</b> — Vertex AI experiments</li>
-</ul>
+    <h2>Stack</h2>
+    <p>Python · FastAPI · Helm · Kubernetes · BigQuery · Vertex AI · vLLM · Ollama</p>
+  </main>
 
-<h2>Tech</h2>
-<p>Python · FastAPI · Kubernetes · Helm · Vertex AI · vLLM · Ollama · BigQuery</p>
-
-<h2>Repository</h2>
-<p>
-  <a href="https://github.com/amanankesh/multimodal-agents"><b>github.com/amanankesh/multimodal-agents</b></a>
-</p>
-
-<h2><a href="../index.html">← Back to Home</a></h2>
-
+  <footer class="site-footer">
+    <a href="../index.html">← Portfolio home</a>
+  </footer>
 </body>
 </html>

@@ -1,130 +1,147 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Aman Kumar Ankesh</title>
-  <style>
-    body {
-      font-family: Arial;
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-      line-height: 1.6;
-    }
-    h1, h2 {
-      color: #222;
-    }
-    .project {
-      margin-bottom: 30px;
-      padding-bottom: 15px;
-      border-bottom: 1px solid #ddd;
-    }
-    .tech {
-      color: #555;
-      font-size: 14px;
-    }
-  </style>
+  <meta name="description" content="AI Engineer — LLMs, multimodal AI, agents, and open-source projects.">
+  <link rel="stylesheet" href="css/site.css">
 </head>
-
 <body>
+  <div class="home-wrap">
+    <header class="site-header-home">
+      <h1>Aman Kumar Ankesh</h1>
+      <p class="tagline">AI Engineer · LLMs · Multimodal AI · Agentic Systems</p>
+      <div class="header-links">
+        <a href="https://github.com/amanankesh">GitHub</a>
+        <span class="sep">·</span>
+        <a href="https://linkedin.com/in/aman-kumar-ankesh">LinkedIn</a>
+      </div>
+    </header>
 
-<h1>Aman Kumar Ankesh</h1>
-<p><b>AI Engineer | LLMs | Multimodal AI | Agentic Systems</b></p>
+    <section aria-labelledby="about-heading">
+      <h2 id="about-heading" class="section-title">About</h2>
+      <p class="section-intro">
+        Building production-minded AI systems: agentic workflows, video understanding, retrieval with vector databases,
+        and multimodal models. I care about clear architecture, measurable quality, and code that ships.
+      </p>
+    </section>
 
-<h2>About</h2>
-<p>
-AI Engineer working on LLM systems, multimodal learning, and scalable AI infrastructure.
-Focused on building agentic systems, video understanding pipelines, and retrieval systems using vector databases.
-</p>
+    <section aria-labelledby="repos-heading">
+      <h2 id="repos-heading" class="section-title">Open source on GitHub</h2>
+      <p class="section-intro">
+        Public repositories on <a href="https://github.com/amanankesh">github.com/amanankesh</a>. Each card links to a
+        dedicated page with context, stack, and a direct link to the repo.
+      </p>
 
-<h2>GitHub repositories</h2>
-<p class="tech">Public projects on <a href="https://github.com/amanankesh">github.com/amanankesh</a> — each links to a short page here plus the repo.</p>
+      <div class="card-grid two">
+        <article class="card">
+          <span class="badge">Site</span>
+          <h3><a href="repos/amanankesh-github-io.html">amanankesh.github.io</a></h3>
+          <p>Source for this portfolio — static pages, project write-ups, GitHub Pages deployment.</p>
+          <div class="tags"><span class="tag">HTML</span><span class="tag">GitHub Pages</span></div>
+        </article>
 
-<div class="project">
-  <h3><a href="repos/amanankesh-github-io.html">amanankesh.github.io</a></h3>
-  <p>Source for this GitHub Pages site.</p>
-  <p class="tech">HTML · GitHub Pages</p>
-</div>
+        <article class="card">
+          <span class="badge">Video</span>
+          <h3><a href="repos/cric_info_motion_graphics.html">cric_info_motion_graphics</a></h3>
+          <p>Cricket match footage → chalkboard-style motion graphics: segmentation, edges, cinematic grade.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">YOLO</span><span class="tag">SAM2</span></div>
+        </article>
 
-<div class="project">
-  <h3><a href="repos/cric_info_motion_graphics.html">cric_info_motion_graphics</a></h3>
-  <p>Cricket footage → chalkboard / motion-graphics pipeline (segmentation, edges, grade).</p>
-  <p class="tech">Python · YOLO · SAM2</p>
-</div>
+        <article class="card">
+          <span class="badge">3D / Avatars</span>
+          <h3><a href="repos/generalizable-gaussian-avatar.html">Generalizable-Gaussian-Avatar</a></h3>
+          <p>Dynamic Gaussian head avatars (GAGAvatar-style): training, inference, reference + driver frames.</p>
+          <div class="tags"><span class="tag">PyTorch</span><span class="tag">FLAME</span><span class="tag">Gaussians</span></div>
+        </article>
 
-<div class="project">
-  <h3><a href="repos/generalizable-gaussian-avatar.html">Generalizable-Gaussian-Avatar</a></h3>
-  <p>GAGAvatar-style dynamic Gaussian head avatars: training and inference.</p>
-  <p class="tech">Python · PyTorch · FLAME</p>
-</div>
+        <article class="card">
+          <span class="badge">Generation</span>
+          <h3><a href="repos/improvedmotion-with-ref.html">ImprovedMotion-with-ref</a></h3>
+          <p>Motion-conditioned image/video generation with reference-based modeling and landmark pipelines.</p>
+          <div class="tags"><span class="tag">PyTorch</span><span class="tag">StyleGAN</span><span class="tag">Video</span></div>
+        </article>
 
-<div class="project">
-  <h3><a href="repos/improvedmotion-with-ref.html">ImprovedMotion-with-ref</a></h3>
-  <p>Motion-conditioned generation with reference-based modeling.</p>
-  <p class="tech">Python · PyTorch · StyleGAN-style</p>
-</div>
+        <article class="card">
+          <span class="badge">Animation</span>
+          <h3><a href="repos/metalia.html">METALIA</a></h3>
+          <p>One-shot facial animation: drive a source portrait with motion from video (VoxCeleb / Taichi / TED).</p>
+          <div class="tags"><span class="tag">PyTorch</span><span class="tag">Face</span><span class="tag">Cog</span></div>
+        </article>
 
-<div class="project">
-  <h3><a href="repos/metalia.html">METALIA</a></h3>
-  <p>One-shot facial image animation from a driving video.</p>
-  <p class="tech">Python · PyTorch</p>
-</div>
+        <article class="card">
+          <span class="badge">Platform</span>
+          <h3><a href="repos/multimodal-agents.html">multimodal-agents</a></h3>
+          <p>Monorepo: Gemini/Azure routers, BigQuery MCP, vLLM &amp; Ollama Helm, GPU on Kubernetes.</p>
+          <div class="tags"><span class="tag">FastAPI</span><span class="tag">K8s</span><span class="tag">Vertex</span></div>
+        </article>
 
-<div class="project">
-  <h3><a href="repos/multimodal-agents.html">multimodal-agents</a></h3>
-  <p>LLM routers, BigQuery MCP, vLLM/Ollama Helm, Kubernetes tooling.</p>
-  <p class="tech">Python · FastAPI · K8s · Vertex</p>
-</div>
+        <article class="card">
+          <span class="badge">Search</span>
+          <h3><a href="repos/sports-video-search.html">Sports-Video-Search</a></h3>
+          <p>Semantic + structured search over sports clips: Vertex AI, Postgres, FAISS, FastAPI, Cloud Run–ready.</p>
+          <div class="tags"><span class="tag">FastAPI</span><span class="tag">FAISS</span><span class="tag">GCP</span></div>
+        </article>
+      </div>
+    </section>
 
-<div class="project">
-  <h3><a href="repos/sports-video-search.html">Sports-Video-Search</a></h3>
-  <p>Hybrid search over sports clips: Vertex, Postgres, FAISS, FastAPI.</p>
-  <p class="tech">Python · FastAPI · FAISS · GCP</p>
-</div>
+    <section aria-labelledby="projects-heading">
+      <h2 id="projects-heading" class="section-title">Featured write-ups</h2>
+      <p class="section-intro">
+        Deeper narrative pages for selected systems — design, components, and techniques — beyond what fits in a README.
+      </p>
 
-<h2>Projects</h2>
+      <div class="card-grid">
+        <article class="card">
+          <h3><a href="codepilot.html">CodePilot — Coding Agent</a></h3>
+          <p>Cursor-like agent with multi-file reasoning, RAG over the repo, execution feedback, and Open WebUI integration.</p>
+          <div class="tags"><span class="tag">LLMs</span><span class="tag">RAG</span><span class="tag">FAISS</span></div>
+        </article>
 
-<div class="project">
-  <h3><a href="codepilot.html">CodePilot – Coding Agent</a></h3>
-  <p>
-  Cursor-like coding agent with multi-file reasoning, debugging, and code generation using RAG and tool-calling.
-  </p>
-  <p class="tech">Tech: LLMs, RAG, FAISS, Open WebUI</p>
-</div>
+        <article class="card">
+          <h3><a href="video_agent.html">Video Understanding Agent</a></h3>
+          <p>Hierarchical reasoning from frames to scenes to full video; QA and summarization with multimodal stacks.</p>
+          <div class="tags"><span class="tag">CLIP</span><span class="tag">Milvus</span><span class="tag">PostgreSQL</span></div>
+        </article>
 
-<div class="project">
-  <h3><a href="video_agent.html">Video Understanding Agent</a></h3>
-  <p>
-  Multimodal system with hierarchical reasoning (frame → scene → full video) for video QA and summarization.
-  </p>
-  <p class="tech">Tech: Transformers, CLIP, Milvus, PostgreSQL</p>
-</div>
+        <article class="card">
+          <h3><a href="contextual_ads.html">Contextual Advertising System</a></h3>
+          <p>Multimodal retrieval and timestamp-level relevance for ad targeting with vector search.</p>
+          <div class="tags"><span class="tag">Milvus</span><span class="tag">FAISS</span><span class="tag">Embeddings</span></div>
+        </article>
 
-<div class="project">
-  <h3><a href="contextual_ads.html">Contextual Advertising System</a></h3>
-  <p>
-  Multimodal ad targeting system using semantic retrieval and timestamp-level relevance scoring.
-  </p>
-  <p class="tech">Tech: Vector DB (Milvus, FAISS), ANN Search, Embeddings</p>
-</div>
+        <article class="card">
+          <h3><a href="lipsync.html">Multi-Language Lip-Sync (VisualDub)</a></h3>
+          <p>Cross-lingual lip sync with 3D motion and keypoint-aware generative models.</p>
+          <div class="tags"><span class="tag">PyTorch</span><span class="tag">3D motion</span></div>
+        </article>
+      </div>
+    </section>
 
-<div class="project">
-  <h3><a href="lipsync.html">Multi-Language Lip-Sync (VisualDub)</a></h3>
-  <p>
-  Cross-lingual lip-sync system using 3D motion and keypoint-based generative models.
-  </p>
-  <p class="tech">Tech: Generative Models, 3D Motion, PyTorch</p>
-</div>
+    <section aria-labelledby="skills-heading">
+      <h2 id="skills-heading" class="section-title">Skills &amp; tools</h2>
+      <div class="skills-block">
+        <span class="skill-pill">LLMs &amp; agents</span>
+        <span class="skill-pill">RAG</span>
+        <span class="skill-pill">Multimodal learning</span>
+        <span class="skill-pill">FAISS / Milvus</span>
+        <span class="skill-pill">PostgreSQL</span>
+        <span class="skill-pill">PyTorch</span>
+        <span class="skill-pill">Transformers</span>
+        <span class="skill-pill">Kubernetes</span>
+        <span class="skill-pill">GCP / Vertex</span>
+        <span class="skill-pill">FastAPI</span>
+      </div>
+    </section>
 
-<h2>Skills</h2>
-<p>
-LLMs, RAG, Agentic Systems, Multimodal Learning, FAISS, Milvus, PostgreSQL, PyTorch, Transformers
-</p>
-
-<h2>Links</h2>
-<p>
-<a href="https://github.com/amanankesh">GitHub</a> |
-<a href="https://linkedin.com/in/aman-kumar-ankesh">LinkedIn</a>
-</p>
-
+    <footer class="links-footer">
+      <a href="https://github.com/amanankesh">GitHub</a>
+      ·
+      <a href="https://linkedin.com/in/aman-kumar-ankesh">LinkedIn</a>
+      ·
+      Portfolio source: <a href="repos/amanankesh-github-io.html">amanankesh.github.io</a>
+    </footer>
+  </div>
 </body>
 </html>

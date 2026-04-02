@@ -1,48 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>METALIA</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-      line-height: 1.6;
-    }
-    h1, h2 { color: #222; }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>METALIA — Aman Kumar Ankesh</title>
+  <meta name="description" content="One-shot facial image animation with a driving video — PyTorch.">
+  <link rel="stylesheet" href="../css/site.css">
 </head>
-<body>
+<body class="page">
+  <header class="site-header">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a> / <span>Open source</span> / <span>METALIA</span>
+    </nav>
+    <h1>METALIA</h1>
+    <p class="lede">
+      PyTorch implementation for one-shot facial image animation: animate a single source face using motion from a driving
+      video. Pretrained configurations align with common benchmarks (VoxCeleb, Taichi, TED-talks style settings).
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://github.com/amanankesh/METALIA">View on GitHub</a>
+      <a class="btn btn-ghost" href="../index.html">← Back to home</a>
+    </div>
+  </header>
 
-<h1>METALIA</h1>
-<p><b>PyTorch implementation for one-shot facial image animation from a driving video.</b></p>
+  <main class="content">
+    <h2>Workflow</h2>
+    <ol>
+      <li>Prepare Python 3.8+ and PyTorch for your CUDA/CPU setup.</li>
+      <li><code>pip install -r requirements.txt</code> after PyTorch.</li>
+      <li>Download pretrained checkpoints into <code>checkpoints/</code> as <code>vox.pt</code>, <code>taichi.pt</code>, <code>ted.pt</code> (see repo for exact format).</li>
+      <li>Run <code>run_demo.py</code> for local image + video → MP4; use <code>predict.py</code> for Cog builds.</li>
+    </ol>
 
-<p>
-  Animate a source face image using motion from driving video. Pretrained settings for VoxCeleb, Taichi, and TED-talks
-  configurations (<code>vox</code>, <code>taichi</code>, <code>ted</code>). Includes training scripts, <code>run_demo.py</code>
-  for local inference, and Cog-based <code>predict.py</code> for containerized deployment.
-</p>
+    <div class="detail-box">
+      <h3>Key paths</h3>
+      <ul>
+        <li><code>networks/</code> — generator, encoder, discriminator.</li>
+        <li><code>train.py</code> / <code>train_w_lmks.py</code> — distributed training entry points.</li>
+        <li><code>run_demo.py</code> — default output folder <code>res/</code>.</li>
+        <li><code>evaluation.py</code> — metrics (may require <code>lpips</code> and related deps).</li>
+        <li><code>cog.yaml</code> — CUDA 11 + Python 3.8 baseline for Replicate/Cog.</li>
+      </ul>
+    </div>
 
-<h2>Highlights</h2>
-<ul>
-  <li>Generator, encoder, discriminator under <code>networks/</code></li>
-  <li>Distributed training via <code>train.py</code> / <code>train_w_lmks.py</code></li>
-  <li>Evaluation helpers and Replicate/Cog workflow</li>
-</ul>
+    <h2>License</h2>
+    <p>CC BY-NC 4.0 (non-commercial). Full text in the repository.</p>
 
-<h2>Tech</h2>
-<p>Python · PyTorch · One-shot animation</p>
+    <h2>Stack</h2>
+    <p>Python · PyTorch · Cog (optional)</p>
+  </main>
 
-<h2>License</h2>
-<p>CC BY-NC 4.0 (non-commercial) — see repository.</p>
-
-<h2>Repository</h2>
-<p>
-  <a href="https://github.com/amanankesh/METALIA"><b>github.com/amanankesh/METALIA</b></a>
-</p>
-
-<h2><a href="../index.html">← Back to Home</a></h2>
-
+  <footer class="site-footer">
+    <a href="../index.html">← Portfolio home</a>
+  </footer>
 </body>
 </html>

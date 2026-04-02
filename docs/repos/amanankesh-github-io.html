@@ -1,43 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>amanankesh.github.io</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-      line-height: 1.6;
-    }
-    h1, h2 { color: #222; }
-    a.repo { font-weight: bold; }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>amanankesh.github.io — Aman Kumar Ankesh</title>
+  <meta name="description" content="Source repository for this GitHub Pages portfolio.">
+  <link rel="stylesheet" href="../css/site.css">
 </head>
-<body>
+<body class="page">
+  <header class="site-header">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a> / <span>Open source</span> / <span>amanankesh.github.io</span>
+    </nav>
+    <h1>amanankesh.github.io</h1>
+    <p class="lede">
+      The Git repository behind this site: static HTML, shared styling, project write-ups, and links to public code on GitHub.
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://github.com/amanankesh/amanankesh.github.io">View on GitHub</a>
+      <a class="btn btn-ghost" href="../index.html">← Back to home</a>
+    </div>
+  </header>
 
-<h1>amanankesh.github.io</h1>
-<p><b>Source repository for this personal site (GitHub Pages).</b></p>
+  <main class="content">
+    <h2>What this repo is for</h2>
+    <p>
+      GitHub Pages serves the <code>main</code> branch (or your configured publishing source). This tree holds the hand-written
+      pages you are reading: no build step required, easy to version and review in PRs.
+    </p>
 
-<p>
-  This repository hosts the static HTML for <a href="https://amanankesh.github.io/">amanankesh.github.io</a>:
-  project write-ups, demos, and links to open-source work. Changes pushed to the default branch update the live site.
-</p>
+    <div class="detail-box">
+      <h3>Layout</h3>
+      <ul>
+        <li><code>docs/index.html</code> — main portfolio: about, repo cards, featured write-ups, skills.</li>
+        <li><code>docs/css/site.css</code> — shared typography, cards, buttons, and article styles.</li>
+        <li><code>docs/repos/*.html</code> — one page per public repository with summary + GitHub link.</li>
+        <li><code>docs/*.html</code> — longer narrative pages (CodePilot, video agent, etc.).</li>
+        <li>Root <code>index.html</code> — minimal entry that points visitors to <code>docs/</code> when needed.</li>
+      </ul>
+    </div>
 
-<h2>What lives here</h2>
-<ul>
-  <li>Landing and project pages under <code>docs/</code></li>
-  <li>Lightweight styling consistent across project pages</li>
-  <li>Links out to <a href="https://github.com/amanankesh">GitHub</a> repositories for code and READMEs</li>
-</ul>
+    <h2>Why static HTML</h2>
+    <p>
+      Fast loads, straightforward hosting on GitHub Pages, and full control over markup and accessibility. When a project grows,
+      you can still add a separate app or docs site and link it from here.
+    </p>
 
-<h2>Repository</h2>
-<p>
-  <a class="repo" href="https://github.com/amanankesh/amanankesh.github.io">github.com/amanankesh/amanankesh.github.io</a>
-  · Language: HTML · GitHub Pages enabled
-</p>
+    <h2>Stack</h2>
+    <p>HTML · CSS · GitHub Pages (no client-side framework in the baseline layout).</p>
+  </main>
 
-<h2><a href="../index.html">← Back to Home</a></h2>
-
+  <footer class="site-footer">
+    <a href="../index.html">← Portfolio home</a>
+    ·
+    <a href="https://amanankesh.github.io/">Live site</a>
+  </footer>
 </body>
 </html>

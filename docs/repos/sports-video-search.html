@@ -1,45 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Sports Video Search</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-      line-height: 1.6;
-    }
-    h1, h2 { color: #222; }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sports Video Search — Aman Kumar Ankesh</title>
+  <meta name="description" content="Hybrid semantic and structured search over sports clips — FastAPI, Vertex, FAISS.">
+  <link rel="stylesheet" href="../css/site.css">
 </head>
-<body>
+<body class="page">
+  <header class="site-header">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a> / <span>Open source</span> / <span>Sports-Video-Search</span>
+    </nav>
+    <h1>Sports Video Search</h1>
+    <p class="lede">
+      Production-oriented MVP for hybrid <strong>semantic + structured</strong> search over sports clips. Vertex AI powers
+      query parsing and answer summarization; PostgreSQL applies metadata filters; FAISS retrieves by embedding similarity.
+      FastAPI exposes <code>/search</code> and health endpoints suitable for containers and Google Cloud Run.
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://github.com/amanankesh/Sports-Video-Search">View on GitHub</a>
+      <a class="btn btn-ghost" href="../index.html">← Back to home</a>
+    </div>
+  </header>
 
-<h1>Sports Video Search</h1>
-<p><b>Production-oriented MVP: hybrid semantic + structured search over sports clips.</b></p>
+  <main class="content">
+    <h2>Request path (conceptual)</h2>
+    <ol>
+      <li>
+        <strong>Query understanding</strong> — Gemini reads the user query using <code>prompt/query_parser_prompt.txt</code> and emits
+        JSON facets. If Vertex is off or errors, search can still run on the raw string with empty facets.
+      </li>
+      <li>
+        <strong>Retrieval</strong> — Postgres applies structured filters when facets exist; FAISS returns top‑K by cosine-style
+        similarity (L2-normalized inner product). Results merge and dedupe by clip <code>id</code>.
+      </li>
+      <li>
+        <strong>Ranking</strong> — Weighted blend of editorial signals (<code>action_score</code>, <code>visual_quality</code>, …), vector
+        similarity, and facet match bonuses.
+      </li>
+      <li>
+        <strong>Answer</strong> — Gemini summarizes the top hits in neutral, sports-appropriate wording.
+      </li>
+    </ol>
 
-<p>
-  Combines Vertex AI (Gemini for query parsing and summaries, text embeddings), PostgreSQL for metadata filters, and FAISS
-  for vector retrieval. FastAPI exposes search, health, and readiness endpoints suitable for containers and Cloud Run.
-</p>
+    <div class="detail-box">
+      <h3>Startup (FastAPI lifespan)</h3>
+      <p>On load, the app configures logging, pydantic settings, optional <code>vertexai.init</code>, and loads the FAISS index +
+      metadata if paths are valid and consistent. Optional <code>CREATE_TABLES_ON_STARTUP</code> ensures ORM tables exist. CORS is
+      applied when <code>CORS_ORIGINS</code> is set.</p>
+    </div>
 
-<h2>Flow</h2>
-<ol>
-  <li>Query understanding — Gemini extracts structured facets (JSON); falls back gracefully if Vertex is unavailable.</li>
-  <li>Retrieval — Postgres for filters; FAISS for top‑K similarity; dedupe by clip id.</li>
-  <li>Ranking — Blend of editorial signals, vector similarity, and facet bonuses.</li>
-  <li>Answer — Gemini summarizes top hits in neutral, sports-appropriate language.</li>
-</ol>
+    <h2>API surface</h2>
+    <p>
+      Search is implemented under both <code>GET /search</code> and <code>GET /v1/search</code> via a shared router in
+      <code>app/routes/search.py</code> — check the repo for the exact request/response schema and env vars
+      (<code>FAISS_INDEX_PATH</code>, <code>GOOGLE_CLOUD_PROJECT</code>, database URL, etc.).
+    </p>
 
-<h2>Tech</h2>
-<p>Python · FastAPI · Vertex AI · PostgreSQL · FAISS · Google Cloud Run</p>
+    <h2>Stack</h2>
+    <p>Python · FastAPI · Vertex AI (Gemini + embeddings) · PostgreSQL · FAISS · Google Cloud Run</p>
+  </main>
 
-<h2>Repository</h2>
-<p>
-  <a href="https://github.com/amanankesh/Sports-Video-Search"><b>github.com/amanankesh/Sports-Video-Search</b></a>
-</p>
-
-<h2><a href="../index.html">← Back to Home</a></h2>
-
+  <footer class="site-footer">
+    <a href="../index.html">← Portfolio home</a>
+  </footer>
 </body>
 </html>
